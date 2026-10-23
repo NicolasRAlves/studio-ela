@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ELA Studio • Links</title>
+  <meta name="description" content="ELA Studio — lashes, nails e brows. Conheça nossas profissionais, agende seu horário e venha nos visitar." />
+  <meta name="theme-color" content="#faf6f2" />
+  <meta property="og:title" content="ELA Studio" />
+  <meta property="og:description" content="Lashes • Nails • Brows — agende seu horário com nossas profissionais." />
+  <meta property="og:image" content="logo-studio.jpeg" />
+  <link rel="icon" href="logo-studio.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       🎨 CORES — troque aqui para seguir a identidade do studio
+       ========================================================= */
+    :root {
+      --page: #faf6f2;        /* fundo da página (creme da logo) */
+      --page-2: #f0e6e1;      /* rosado claro do degradê do fundo */
+      --ink: #2b2727;         /* grafite (textos fora dos cards) */
+      --ink-muted: rgba(43, 39, 39, .58);
+      --shade: 38, 30, 30;    /* marrom escuro da sombra dos cards (RGB) */
+      --accent: #ffffff;      /* branco (ícones e botões nos cards) */
+      --accent-soft: #f1d9d8; /* rosê claro (títulos pequenos nos cards) */
+      --silver: #c49a9c;      /* rosê da logo (detalhes) */
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, .72);
+      --card-border: rgba(255, 255, 255, .5);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(120% 70% at 50% 0%, #ffffff 0%, var(--page) 55%, var(--page-2) 100%) fixed, var(--page);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Fundo animado ---------- */
+    .bg-fx { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .5; animation: float 18s ease-in-out infinite alternate; }
+    .blob.b1 { width: 340px; height: 340px; background: #ffffff; top: -120px; left: -120px; }
+    .blob.b2 { width: 280px; height: 280px; background: #e8cfcf; bottom: 10%; right: -140px; animation-delay: -6s; opacity: .45; }
+    .blob.b3 { width: 220px; height: 220px; background: #efdcd6; top: 45%; left: -110px; animation-delay: -12s; opacity: .5; }
+    @keyframes float { to { transform: translate(40px, 60px) scale(1.12); } }
+    .grain { position: absolute; inset: -50%; opacity: .05; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .spark { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: var(--silver); box-shadow: 0 0 6px #fff; opacity: 0; animation: twinkle 6s ease-in-out infinite; }
+    @keyframes twinkle { 0%,100% { opacity: 0; transform: scale(.4); } 50% { opacity: .8; transform: scale(1); } }
+
+    /* ---------- Layout ---------- */
+    main { position: relative; z-index: 1; width: 100%; max-width: 440px; margin: 0 auto; padding: calc(36px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom)); }
+
+    .reveal { opacity: 0; transform: translateY(26px); animation: up .9s cubic-bezier(.16, 1, .3, 1) forwards; }
+    @keyframes up { to { opacity: 1; transform: none; } }
+
+    /* ---------- Header ---------- */
+    header { text-align: center; margin-bottom: 30px; }
+    .logo { display: block; width: 172px; height: 172px; margin: 0 auto 16px; overflow: hidden; background: #faf6f2;
+      border: 1px solid rgba(196, 154, 156, .45); box-shadow: 0 0 0 6px rgba(255,255,255,.7), 0 16px 34px -12px rgba(90, 60, 60, .35); }
+    .logo img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); }
+    .logo-fallback { display: none; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 46px; line-height: 1; margin-bottom: 12px;
+      background: linear-gradient(100deg, #2b2727, #a07a7c 40%, #e2c3c4 50%, #2b2727 62%); background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent; animation: up .9s cubic-bezier(.16,1,.3,1) forwards, shine 6s linear infinite; }
+    @keyframes shine { to { background-position: -220% 0; } }
+    .tagline { font-size: 14px; color: var(--ink-muted); letter-spacing: .02em; }
+    .divider { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 16px; color: var(--ink); font-size: 10px; letter-spacing: .32em; text-transform: uppercase; font-weight: 600; }
+    .divider::before, .divider::after { content: ""; width: 34px; height: 1px; background: linear-gradient(90deg, transparent, var(--silver)); }
+    .divider::after { transform: scaleX(-1); }
+
+    .section-title { font-size: 11px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-muted); margin: 6px 4px 12px; }
+
+    /* ---------- Cards (mesmo estilo do link do açaí) ---------- */
+    .stack { display: flex; flex-direction: column; gap: 14px; }
+    .card { position: relative; display: block; height: 178px; border-radius: var(--radius); overflow: hidden; isolation: isolate;
+      border: 1px solid var(--card-border); box-shadow: 0 20px 40px -20px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.06); color: var(--text); transition: transform .35s cubic-bezier(.16,1,.3,1); }
+    .card:active { transform: scale(.97); }
+    .card .bg { position: absolute; inset: 0; z-index: -2; background-size: cover; background-position: center; transition: transform 1.2s cubic-bezier(.16,1,.3,1); }
+    .card:hover .bg { transform: scale(1.07); }
+    .card .shade { position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(180deg, rgba(var(--shade),0) 0%, rgba(var(--shade),.3) 45%, rgba(var(--shade),.9) 100%); }
+    .card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.14) 50%, transparent 65%);
+      transform: translateX(-120%); transition: transform .9s ease; pointer-events: none; }
+    .card:hover::after { transform: translateX(120%); }
+    .stretch { position: absolute; inset: 0; z-index: 1; }
+
+    .content { position: absolute; left: 20px; right: 82px; bottom: 18px; pointer-events: none; }
+    .eyebrow { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 3px; }
+    .card h3 { font-size: 23px; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+    .sub { font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.35; }
+
+    .actions { position: absolute; right: 16px; bottom: 16px; z-index: 2; display: flex; flex-direction: column; gap: 8px; }
+    .icon-btn { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.55); color: var(--accent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background .25s, color .25s, transform .25s; }
+    .icon-btn svg { width: 20px; height: 20px; }
+    .icon-btn.solid { background: #fff; color: var(--ink); border-color: transparent; box-shadow: 0 6px 18px -4px rgba(0,0,0,.45); }
+    .icon-btn:hover { background: #fff; color: var(--ink); }
+    .icon-btn:active { transform: scale(.9); }
+
+    /* ---------- Card das profissionais ---------- */
+    .pro { height: 196px; }
+    .who { display: flex; align-items: center; gap: 12px; }
+    .avatar { position: relative; flex: none; width: 52px; height: 52px; border-radius: 50%; padding: 2px;
+      background: conic-gradient(from 200deg, #ffffff, #c49a9c, #faf6f2, #9d7375, #ffffff); }
+    .avatar img, .avatar span { width: 100%; height: 100%; border-radius: 50%; border: 2px solid #2b2727; }
+    .avatar img { object-fit: cover; display: block; position: relative; z-index: 1; }
+    .avatar span { position: absolute; inset: 2px; width: auto; height: auto; display: grid; place-items: center; background: #3d3232;
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 22px; color: #fff; }
+    .handle { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-size: 12px; color: var(--muted); }
+    .handle svg { width: 13px; height: 13px; }
+    .badge-cta { position: absolute; top: 14px; right: 14px; z-index: 2; pointer-events: none; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.45); color: #fff;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+    /* ---------- Cards menores (local + insta) ---------- */
+    .row { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 26px; }
+    .card.small { height: 150px; }
+    .card.insta .bg { background: radial-gradient(120% 120% at 0% 100%, #8a6466 0%, transparent 55%), radial-gradient(100% 100% at 100% 0%, #c49a9c 0%, transparent 60%), #3d3232; }
+    .insta-ring { position: absolute; right: -30px; top: -30px; width: 150px; height: 150px; border-radius: 40px; border: 18px solid rgba(255,255,255,.08); z-index: -1; transform: rotate(14deg); }
+
+    footer { margin-top: 34px; text-align: center; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: rgba(43,39,39,.38); }
+
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="bg-fx" aria-hidden="true">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="grain"></div>
+    <div id="sparks"></div>
+  </div>
+
+  <main>
+    <header>
+      <div class="logo reveal" id="logo"><img src="logo-studio.jpeg" alt="ELA Studio — Lashes, Nails, Brows" onerror="this.parentNode.style.display='none';document.getElementById('logoFallback').style.display='block'" /></div>
+      <div class="logo-fallback reveal" id="logoFallback">ELA Studio</div>
+      <p class="tagline reveal" id="tagline" style="animation-delay:.12s"></p>
+      <div class="divider reveal" style="animation-delay:.2s">agende seu horário</div>
+    </header>
+
+    <p class="section-title reveal" style="animation-delay:.28s">Nossas profissionais</p>
+    <section class="stack" id="pros"></section>
+
+    <section class="row" id="extras"></section>
+
+    <footer class="reveal" id="footer"></footer>
+  </main>
+
+  <script>
+    /* =========================================================
+       ✏️ CONFIGURAÇÃO — edite só este bloco
+       Fotos: ficam na mesma pasta do index.html (nome exato, com maiúsculas).
+       "foto" = bolinha ao lado do nome (se vazio, mostra a inicial).
+       "posicao" = qual parte da foto aparece no card (ex.: "center 40%").
+       ========================================================= */
+    const STUDIO = {
+      nome: "ELA Studio",
+      slogan: "Beleza, cuidado e autoestima em cada detalhe",
+      instagram: "_.studioela",               // @ do studio (sem o @)
+      whatsapp: "5511912389355",              // número padrão, se alguma profissional ficar sem número
+      endereco: {
+        linha1: "Toque para ver como chegar",
+        linha2: "Abrir no Google Maps",
+        maps: "https://share.google/X2NZj3bEXJFEJInc8",
+        capa: "",                             // opcional: foto da fachada (ex.: "fachada.jpg")
+      },
+      profissionais: [
+        { nome: "Lívia Ribeiro", servico: "Lash Designer", instagram: "_.livialashdesigner", foto: "", capa: "card-livia.PNG", posicao: "center 42%",
+          whatsapp: "5511912389355", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer cílios. Você tem disponibilidade?" },
+        { nome: "Ana Soares", servico: "Nail Designer", instagram: "_anasoares.nails", foto: "", capa: "card-ana.PNG", posicao: "center 45%",
+          whatsapp: "5511967671895", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer unhas. Você tem disponibilidade?" },
+        { nome: "Eduarda Vieira", servico: "Design de Sobrancelhas", instagram: "browsbyev", foto: "", capa: "card-eduarda.PNG", posicao: "center 38%",
+          whatsapp: "5511912621791", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer as sobrancelhas. Você tem disponibilidade?" },
+      ],
+    };
+    /* ========================================================= */
+
+    const ICON = {
+      wa: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>',
+      ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+      pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+      arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>',
+    };
+
+    const fallbackBg = (i) => [
+      "radial-gradient(120% 90% at 85% 10%, #d9b8b9 0%, transparent 60%), linear-gradient(135deg, #6e5456, #2b2424)",
+      "radial-gradient(120% 90% at 15% 15%, #e6cccc 0%, transparent 60%), linear-gradient(135deg, #634b4c, #282020)",
+      "radial-gradient(120% 90% at 70% 0%, #ecd6d4 0%, transparent 55%), linear-gradient(135deg, #6a5354, #2b2424)",
+      "radial-gradient(120% 90% at 30% 0%, #c49a9c 0%, transparent 60%), linear-gradient(135deg, #5a4344, #241d1d)",
+    ][i % 4];
+    const bg = (img, i, pos = "center") => img
+      ? `background-image:url('${img}'), ${fallbackBg(i)};background-position:${pos}, center`
+      : `background-image:${fallbackBg(i)}`;
+    const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    const ig = (u) => `https://www.instagram.com/${u}`;
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const initial = (n) => esc(n.trim().charAt(0).toUpperCase());
+
+    // Header
+    document.title = `${STUDIO.nome} • Links`;
+    document.getElementById("tagline").textContent = STUDIO.slogan;
+    document.getElementById("logoFallback").textContent = STUDIO.nome;
+
+    // Profissionais
+    let d = 0.34;
+    document.getElementById("pros").innerHTML = STUDIO.profissionais.map((p, i) => {
+      const num = p.whatsapp || STUDIO.whatsapp;
+      const msg = p.mensagem || `Oi, tudo bem? Queria agendar um horário de ${p.servico}. Você tem disponibilidade?`;
+      const html = `
+      <article class="card pro reveal" style="animation-delay:${(d + i * 0.1).toFixed(2)}s">
+        <div class="bg" style="${bg(p.capa, i, p.posicao)}"></div>
+        <div class="shade"></div>
+        <a class="stretch" href="${wa(num, msg)}" target="_blank" rel="noopener" aria-label="Agendar com ${esc(p.nome)} pelo WhatsApp"></a>
+        <span class="badge-cta">Agendar</span>
+        <div class="content">
+          <div class="who">
+            <div class="avatar"><span>${initial(p.nome)}</span>${p.foto ? `<img src="${p.foto}" alt="${esc(p.nome)}" loading="lazy" onerror="this.remove()">` : ""}</div>
+            <div>
+              <span class="eyebrow">${esc(p.servico)}</span>
+              <h3>${esc(p.nome)}</h3>
+            </div>
+          </div>
+          <span class="handle">${ICON.ig}@${esc(p.instagram)}</span>
+        </div>
+        <div class="actions">
+          <a class="icon-btn" href="${ig(p.instagram)}" target="_blank" rel="noopener" aria-label="Instagram de ${esc(p.nome)}">${ICON.ig}</a>
+          <a class="icon-btn solid" href="${wa(num, msg)}" target="_blank" rel="noopener" aria-label="WhatsApp de ${esc(p.nome)}">${ICON.wa}</a>
+        </div>
+      </article>`;
+      return html;
+    }).join("");
+    d += STUDIO.profissionais.length * 0.1;
+
+    // Localização + Instagram do studio
+    const e = STUDIO.endereco;
+    document.getElementById("extras").innerHTML = `
+      <p class="section-title reveal" style="animation-delay:${(d + .05).toFixed(2)}s;margin-bottom:-2px">O studio</p>
+      <a class="card small reveal" href="${e.maps}" target="_blank" rel="noopener" style="animation-delay:${(d + .12).toFixed(2)}s">
+        <div class="bg" style="${bg(e.capa, 3)}"></div>
+        <div class="shade"></div>
+        <div class="content">
+          <span class="eyebrow">Venha nos visitar</span>
+          <h3>Localização</h3>
+          <p class="sub">${esc(e.linha1)}<br>${esc(e.linha2)}</p>
+        </div>
+        <div class="actions"><span class="icon-btn">${ICON.pin}</span></div>
+      </a>
+      <a class="card small insta reveal" href="${ig(STUDIO.instagram)}" target="_blank" rel="noopener" style="animation-delay:${(d + .22).toFixed(2)}s">
+        <div class="bg"></div>
+        <div class="insta-ring"></div>
+        <div class="shade" style="opacity:.5"></div>
+        <div class="content">
+          <span class="eyebrow">Siga a gente</span>
+          <h3>@${esc(STUDIO.instagram)}</h3>
+          <p class="sub">Trabalhos, novidades e horários disponíveis</p>
+        </div>
+        <div class="actions"><span class="icon-btn">${ICON.ig}</span></div>
+      </a>`;
+
+    const f = document.getElementById("footer");
+    f.style.animationDelay = (d + .35).toFixed(2) + "s";
+    f.textContent = `© ${new Date().getFullYear()} ${STUDIO.nome}`;
+
+    // brilhinhos
+    const sp = document.getElementById("sparks");
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement("span");
+      s.className = "spark";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.animationDelay = (Math.random() * 6).toFixed(2) + "s";
+      s.style.animationDuration = (4 + Math.random() * 5).toFixed(2) + "s";
+      sp.appendChild(s);
+    }
+  </script>
+</body>
+</html>
