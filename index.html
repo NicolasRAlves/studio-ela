@@ -158,6 +158,7 @@
        Fotos: ficam na mesma pasta do index.html (nome exato, com maiúsculas).
        "foto" = bolinha ao lado do nome (se vazio, mostra a inicial).
        "posicao" = qual parte da foto aparece no card (ex.: "center 40%").
+       "zoom" = opcional, aproxima a foto no card (ex.: "150%").
        ========================================================= */
     const STUDIO = {
       nome: "ELA Studio",
@@ -173,7 +174,7 @@
       profissionais: [
         { nome: "Lívia Ribeiro", servico: "Lash Designer", instagram: "_.livialashdesigner", foto: "avatar-livia.jpg", capa: "card-livia-2.jpg", posicao: "center 58%",
           whatsapp: "5511912389355", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer cílios. Você tem disponibilidade?" },
-        { nome: "Ana Soares", servico: "Nail Designer", instagram: "_anasoares.nails", foto: "avatar-ana.png", capa: "card-ana1.jpeg", posicao: "center 71%",
+        { nome: "Ana Soares", servico: "Nail Designer", instagram: "_anasoares.nails", foto: "avatar-ana.png", capa: "card-ana1.jpeg", posicao: "10% 69%", zoom: "130%",
           whatsapp: "5511967671895", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer unhas. Você tem disponibilidade?" },
         { nome: "Eduarda Vieira", servico: "Design de Sobrancelhas", instagram: "browsbyev", foto: "avatar-duda.png", capa: "card-eduarda.PNG", posicao: "center 38%",
           whatsapp: "5511912621791", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer as sobrancelhas. Você tem disponibilidade?" },
@@ -194,8 +195,8 @@
       "radial-gradient(120% 90% at 70% 0%, #ecd6d4 0%, transparent 55%), linear-gradient(135deg, #6a5354, #2b2424)",
       "radial-gradient(120% 90% at 30% 0%, #c49a9c 0%, transparent 60%), linear-gradient(135deg, #5a4344, #241d1d)",
     ][i % 4];
-    const bg = (img, i, pos = "center") => img
-      ? `background-image:url('${img}'), ${fallbackBg(i)};background-position:${pos}, center`
+    const bg = (img, i, pos = "center", zoom = "cover") => img
+      ? `background-image:url('${img}'), ${fallbackBg(i)};background-position:${pos}, center;background-size:${zoom}, cover`
       : `background-image:${fallbackBg(i)}`;
     const wa = (num, msg) => `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
     const ig = (u) => `https://www.instagram.com/${u}`;
@@ -214,7 +215,7 @@
       const msg = p.mensagem || `Oi, tudo bem? Queria agendar um horário de ${p.servico}. Você tem disponibilidade?`;
       const html = `
       <article class="card pro reveal" style="animation-delay:${(d + i * 0.1).toFixed(2)}s">
-        <div class="bg" style="${bg(p.capa, i, p.posicao)}"></div>
+        <div class="bg" style="${bg(p.capa, i, p.posicao, p.zoom)}"></div>
         <div class="shade"></div>
         <a class="stretch" href="${wa(num, msg)}" target="_blank" rel="noopener" aria-label="Agendar com ${esc(p.nome)} pelo WhatsApp"></a>
         <span class="badge-cta">Agendar</span>
