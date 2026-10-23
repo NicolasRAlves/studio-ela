@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#faf6f2" />
   <meta property="og:title" content="ELA Studio" />
   <meta property="og:description" content="Lashes • Nails • Brows — agende seu horário com nossas profissionais." />
-  <meta property="og:image" content="logo-studio.jpeg" />
+  <meta property="og:image" content="logo-studio.jpeg" /><!-- prévia ao compartilhar: mantém a versão com fundo -->
   <link rel="icon" href="logo-studio.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,9 +63,7 @@
 
     /* ---------- Header ---------- */
     header { text-align: center; margin-bottom: 30px; }
-    .logo { display: block; width: 172px; height: 172px; margin: 0 auto 16px; overflow: hidden; background: #faf6f2;
-      border: 1px solid rgba(196, 154, 156, .45); box-shadow: 0 0 0 6px rgba(255,255,255,.7), 0 16px 34px -12px rgba(90, 60, 60, .35); }
-    .logo img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); }
+    .logo { display: block; width: 210px; max-width: 70%; height: auto; margin: 8px auto 20px; filter: drop-shadow(0 6px 14px rgba(90, 60, 60, .12)); }
     .logo-fallback { display: none; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 46px; line-height: 1; margin-bottom: 12px;
       background: linear-gradient(100deg, #2b2727, #a07a7c 40%, #e2c3c4 50%, #2b2727 62%); background-size: 220% 100%;
       -webkit-background-clip: text; background-clip: text; color: transparent; animation: up .9s cubic-bezier(.16,1,.3,1) forwards, shine 6s linear infinite; }
@@ -140,7 +138,7 @@
 
   <main>
     <header>
-      <div class="logo reveal" id="logo"><img src="logo-studio.jpeg" alt="ELA Studio — Lashes, Nails, Brows" onerror="this.parentNode.style.display='none';document.getElementById('logoFallback').style.display='block'" /></div>
+      <img class="logo reveal" id="logo" src="logo-ela.png" alt="ELA Studio — Lashes, Nails, Brows" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block'" />
       <div class="logo-fallback reveal" id="logoFallback">ELA Studio</div>
       <p class="tagline reveal" id="tagline" style="animation-delay:.12s"></p>
       <div class="divider reveal" style="animation-delay:.2s">agende seu horário</div>
@@ -173,11 +171,11 @@
         capa: "",                             // opcional: foto da fachada (ex.: "fachada.jpg")
       },
       profissionais: [
-        { nome: "Lívia Ribeiro", servico: "Lash Designer", instagram: "_.livialashdesigner", foto: "", capa: "card-livia.PNG", posicao: "center 42%",
+        { nome: "Lívia Ribeiro", servico: "Lash Designer", instagram: "_.livialashdesigner", foto: "avatar-livia.jpg", capa: "card-livia-2.jpg", posicao: "center 58%",
           whatsapp: "5511912389355", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer cílios. Você tem disponibilidade?" },
-        { nome: "Ana Soares", servico: "Nail Designer", instagram: "_anasoares.nails", foto: "", capa: "card-ana.PNG", posicao: "center 45%",
+        { nome: "Ana Soares", servico: "Nail Designer", instagram: "_anasoares.nails", foto: "avatar-ana.png", capa: "card-ana.PNG", posicao: "center 45%",
           whatsapp: "5511967671895", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer unhas. Você tem disponibilidade?" },
-        { nome: "Eduarda Vieira", servico: "Design de Sobrancelhas", instagram: "browsbyev", foto: "", capa: "card-eduarda.PNG", posicao: "center 38%",
+        { nome: "Eduarda Vieira", servico: "Design de Sobrancelhas", instagram: "browsbyev", foto: "avatar-duda.png", capa: "card-eduarda.PNG", posicao: "center 38%",
           whatsapp: "5511912621791", mensagem: "Oi, tudo bem? Queria agendar um horário para fazer as sobrancelhas. Você tem disponibilidade?" },
       ],
     };
